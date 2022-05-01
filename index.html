@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="dist/output.css">
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.classList.add('dark')
+} else {
+  document.documentElement.classList.remove('dark')
+}
+    </script>
 </head>
 <body>
     <!-- Header start -->
@@ -25,26 +32,38 @@
                         <span class="hamburger-line transition duration-300 ease-in-out"></span>
                         <span class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
                     </button>
-                    <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none ">
+                    <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:bg-dark dark:shadow-slate-500 lg:dark:bg-transparent ">
                         <ul class="block lg:flex ">
                             <li class="group">
-                                <a href="#home" class="flex text-base text-dark py-2 mx-8 group-hover:text-primary">Beranda</a>
+                                <a href="#home" class="flex text-base text-dark py-2 mx-8 group-hover:text-primary dark:text-white">Beranda</a>
                             </li>
                             <li class="group">
-                                <a href="#about" class="flex text-base text-dark py-2 mx-8 group-hover:text-primary">
+                                <a href="#about" class="flex text-base text-dark py-2 mx-8 group-hover:text-primary dark:text-white">
                                     Tentang saya</a>
                             </li>
                             <li class="group">
-                                <a href="#portfolio" class="flex text-base text-dark py-2 mx-8 group-hover:text-primary">
+                                <a href="#portfolio" class="flex text-base text-dark py-2 mx-8 group-hover:text-primary dark:text-white">
                                     Portfolio</a>
                             </li>
                             <li class="group">
-                                <a href="#certificate" class="flex text-base text-dark py-2 mx-8 group-hover:text-primary">
+                                <a href="#certificate" class="flex text-base text-dark py-2 mx-8 group-hover:text-primary dark:text-white">
                                     Sertifikasi</a>
                             </li>
                             <li class="group">
-                                <a href="#contact" class="flex text-base text-dark py-2 mx-8 group-hover:text-primary">
+                                <a href="#contact" class="flex text-base text-dark py-2 mx-8 group-hover:text-primary dark:text-white">
                                     kontak</a>
+                            </li>
+                            <li class="flex items-center pl-6 mt-0">
+                                <span class="mr-2 text-sm text-slate-500">light</span>
+                                <input type="checkbox" class="hidden" id="dark-toggle">
+                                <label for="dark-toggle">
+                                    <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
+                                        <div class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"></div>
+                                    </div>
+                                </label>
+ 
+                                <span class="ml-2 text-sm text-slate-500">dark</span>
+
                             </li>
                         </ul>
                     </nav>
@@ -57,14 +76,14 @@
 
 
     <!-- Hero section start -->
-    <section id="home" class="pt-36">
+    <section id="home" class="pt-36 dark:bg-dark">
         <div class="container">
                 <div class="flex flex-wrap">
                     <div class="w-full self-center px-4 lg:w-1/2">
 
-                           <h1 class="text-base font-semibold text-primary md:text-xl ">Halo Semua ✌, saya
-                               <span class="block font-bold text-dark text-4xl mt-1">David Santoso</span> </h1>
-                               <h2 class="font-medium text-slate-500 text-lg mb-5 lg:text-2xl">Android Developer</h2>
+                           <h1 class="text-base font-semibold text-primary  md:text-xl ">Halo Semua ✌, saya
+                               <span class="block font-bold text-dark text-4xl mt-1 dark:text-white">David Santoso</span> </h1>
+                               <h2 class="font-medium text-slate-500 text-lg mb-5 lg:text-2xl dark:text-white">Android Developer</h2>
                                <p class="font-medium text-secondary mb-10 leading-relaxed">
                                    Ini Portfolio project yang sudah saya kerjakan</p>
                                 <a href="#" class="text-base font-semibold text-white bg-primary 
@@ -75,8 +94,8 @@
                             </div>
                             <div class="w-full self-end px-4 lg:w-1/2">
                                 <div class="relative mt-10 lg:mt-0 lg:right-0">
-                                    <img width="400" height="400" src="images/profile.png" alt="David Santoso" class="max-w-full mx-auto"/>
-                                    <span class="absolute bottom-0 -z-10 left-1/2 -translate-x-1/2 md:scale-125"> 
+                                    <img width="400" height="400" src="images/profile.png" alt="David Santoso" class="relative z-10 max-w-full mx-auto"/>
+                                    <span class="absolute bottom-0  left-1/2 -translate-x-1/2 md:scale-125"> 
                                         <svg width="400" height="300"viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                                             <path fill="#2563EB" d="M48.3,-50.2C60.6,-36,67.3,-18,66.4,-0.9C65.5,16.2,57.1,32.4,44.7,47.1C32.4,61.8,16.2,75,-3.4,78.4C-22.9,81.7,-45.9,75.3,-57.3,60.6C-68.7,45.9,-68.6,22.9,-68.1,0.4C-67.7,-22.1,-67,-44.2,-55.6,-58.4C-44.2,-72.7,-22.1,-79.1,-2.1,-77C18,-74.9,36,-64.4,48.3,-50.2Z" transform="translate(100 100)" />
                                           </svg>
@@ -89,17 +108,17 @@
     <!-- Hero section end -->
 
     <!-- about section start -->
-    <section id="about" class="pt-36 pb-32">
+    <section id="about" class="pt-36 pb-32 dark:bg-dark">
         <div class="container">
             <div class="flex flex-wrap">
                 <div class="w-full px-4 mb-10 lg:w-1/2">
                     <h4 class="font-bold uppercase text-primary text-lg mb-3">Tentang Saya</h4>
-                    <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">Saya adalah Native Android Developer</h2>
+                    <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl dark:text-white">Saya adalah Native Android Developer</h2>
                     <p class="font-medium text-base text-secondary lg:text-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste aspernatur omnis harum, error, architecto voluptatem qui dignissimos officia facere aliquid aperiam facilis earum rerum quia neque iusto repellat velit. Excepturi.</p>
 
                 </div>
                 <div class="w-full px-4 lg:w-1/2">
-                    <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10">Mari Berteman</h3>
+                    <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10 dark:text-white">Mari Berteman</h3>
                     <p class="font-medium text-base text-secondary mb-6 lg:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur voluptates doloribus totam, ullam illo numquam doloremque facilis blanditiis culpa sint dolore! Laborum ut, doloremque voluptas cumque consequuntur sapiente laboriosam deleniti.</p>
                     <div class="flex items-center">
                         <!-- instagram -->
@@ -113,7 +132,7 @@
            
                         
                        
-                        <a href="https://github.com/davidsantoso03" target="_blank"  class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover: bg-primary hover:text-white">
+                        <a href="https://github.com/davidsantosoo" target="_blank"  class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover: bg-primary hover:text-white">
                             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                         </a>
                        
@@ -127,12 +146,12 @@
     <!-- about section end -->
 
     <!-- portfolio start -->
-    <section id="portfolio" class="pt-36 pb-16 bg-slate-200">
+    <section id="portfolio" class="pt-36 pb-16 bg-slate-200 dark:bg-slate-800">
         <div class="container">
             <div class="w-full px-4">
                 <div class="mx-auto text-center mb-16">
                     <h4 class="font-semibold text-lg text-primary mb-2">Portfolio</h4>
-                    <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">Project Terbaru</h2>
+                    <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">Project Terbaru</h2>
                     <p class="font-medium text-medium text-secondary md:text-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus est nesciunt officiis aut voluptatum non consequatur dignissimos quasi, labore alias.</p>
 
                 </div>
@@ -145,7 +164,7 @@
                         <img src="images/portfolio/project-1.png" alt="EzFood" 
                         width="w-full">
                         </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">EzFood Android App</h3>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">EzFood Android App</h3>
                     <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet.</p>
                 </div> 
                 <div class="mb-12 p-4 md:w-1/2">
@@ -153,7 +172,7 @@
                         <img src="images/portfolio/project-1.png" alt="EzFood" 
                         width="w-full">
                         </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">EzFood Android App</h3>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">EzFood Android App</h3>
                     <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet.</p>
                 </div> 
                 <div class="mb-12 p-4 md:w-1/2">
@@ -161,7 +180,7 @@
                     <img src="images/portfolio/project-1.png" alt="EzFood" 
                     width="w-full">
                     </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">EzFood Android App</h3>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">EzFood Android App</h3>
                     <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet.</p>
                 </div> 
                 <div class="mb-12 p-4 md:w-1/2">
@@ -169,7 +188,7 @@
                     <img src="images/portfolio/project-1.png" alt="EzFood" 
                     width="w-full">
                     </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">EzFood Android App</h3>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">EzFood Android App</h3>
                     <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet.</p>
                 </div> 
             
@@ -186,12 +205,12 @@
 
 
     <!-- client start -->
-    <section id="clients" class="pt-36 pb-36 bg-slate-800">
+    <section id="clients" class="pt-36 pb-36 bg-slate-800 dark:bg-slate-300">
         <div class="container">
             <div class="w-full px-4">
                 <div class="mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2">Clients</h4>
-                    <h2 class="font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl">Yang Pernah bekerja sama</h2>
+                    <h4 class="font-semibold text-lg text-primary mb-2 dark:text-primary">Clients</h4>
+                    <h2 class="font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-dark">Yang Pernah bekerja sama</h2>
                     <p class="font-medium text-medium text-secondary md:text-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus est nesciunt officiis aut voluptatum non consequatur dignissimos quasi, labore alias.</p>
 
                 </div>
@@ -229,23 +248,23 @@
     <!-- client end -->
 
     <!-- blog start -->
-    <section id="blog" class="pt-36 pb-32 bg-slate-100">
+    <section id="blog" class="pt-36 pb-32 bg-slate-100 dark:bg-dark">
         <div class="container">
             <div class="w-full px-4">
                 <div class="mx-auto text-center mb-16">
                     <h4 class="font-semibold text-lg text-primary mb-2">Blog</h4>
-                    <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">Tulisan Terkini</h2>
+                    <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">Tulisan Terkini</h2>
                     <p class="font-medium text-medium text-secondary md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos reiciendis ex laboriosam iusto.</p>
 
                 </div>
             </div>
             <div class="flex flex-wrap">
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800 ">
                         <img src="https://source.unsplash.com/360x200?programming" alt="programming" class="w-full">
                         <div class="py-8 px-6">
                             <h3>
-                                <a href="#" class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate"> 
+                                <a href="#" class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate dark:text-white"> 
                                     Tips Belajar Programming</a>
                                 </h3>
                             <p class="font-medium text-base text-secondary mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, sunt.</p>
@@ -254,11 +273,11 @@
                     </div>
                 </div>
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
                         <img src="https://source.unsplash.com/360x200?car" alt="Gaming" class="w-full">
                         <div class="py-8 px-6">
                             <h3>
-                                <a href="#" class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate"> 
+                                <a href="#" class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate dark:text-white"> 
                                     Tips merawat mobil</a>
                                 </h3>
                             <p class="font-medium text-base text-secondary mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, sunt.</p>
@@ -267,11 +286,11 @@
                     </div>
                 </div>
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
                         <img src="https://source.unsplash.com/360x200?basketball" alt="programming" class="w-full">
                         <div class="py-8 px-6">
                             <h3>
-                                <a href="#" class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate"> 
+                                <a href="#" class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate dark:text-white"> 
                                     Tips 3 point terbaik</a>
                                 </h3>
                             <p class="font-medium text-base text-secondary mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, sunt.</p>
@@ -286,12 +305,12 @@
     <!-- blog end  -->
 
     <!-- contact start -->
-    <section id="contact" class="pt-36 pb-32">
+    <section id="contact" class="pt-36 pb-32 dark:bg-slate-800">
         <div class="container">
             <div class="w-full px-4">
                 <div class="mx-auto text-center mb-16">
                     <h4 class="font-semibold text-lg text-primary mb-2">Contact</h4>
-                    <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">
+                    <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">
                         Hubungi Kami</h2>
                     <p class="font-medium text-medium text-secondary md:text-lg">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos reiciendis ex laboriosam iusto.</p>
@@ -411,7 +430,7 @@
        
                     
                    
-                    <a href="https://github.com/davidsantoso03" target="_blank"  class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover: bg-primary hover:text-white">
+                    <a href="https://github.com/davidsantosoo" target="_blank"  class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover: bg-primary hover:text-white">
                         <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                     </a>
                    
@@ -422,6 +441,12 @@
         </div>
     </footer>
     <!-- footer end  -->
+
+    <!-- back to top start -->
+    <a href="#home" id="toTop" class="fixed  justify-center items-center bottom-4 right-4 z-[9999] hidden h-14 w-14 bg-primary rounded-full p-4 hover:animate-pulse">
+        <span class="block h-5 w-5 rotate-45 border-t-2 border-l-2 mt-2 "></span>
+    </a>
+    <!-- back to top end -->
     <script src="dist/js/script.js"></script>
 </body>
 </html> 
